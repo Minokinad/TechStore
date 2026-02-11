@@ -1,5 +1,5 @@
-<! DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,73 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Добро пожаловать в TechStore!</h1>
-    <p>Это стартовая страница моего веб-приложения.</p>
+    <div class="main-glow"></div>
+
+    <header>
+      <div class="logo">TechStore</div>
+      <nav>
+        <ul>
+          <li><a href="#">Catalog</a></li>
+          <li><a href="#">Sales</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>The Future of Tech is Here.</h1>
+      <p>
+        Discover the next generation of smartphones, laptops, and wearable
+        devices
+      </p>
+    </section>
+
+    <section class="categories-section">
+      <h2>Categories</h2>
+      <div class="categories-grid">
+        <div class="category-card">
+          <img
+            src="images/smartphone.png"
+            alt="Smartphones"
+            class="category-image"
+          />
+          <h3>Smartphones</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/laptop.png" alt="Laptops" class="category-image" />
+          <h3>Laptops & PCs</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/audio.png" alt="Audio" class="category-image" />
+          <h3>Audio & Headphones</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/gaming.png" alt="Gaming" class="category-image" />
+          <h3>Gaming gear</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/watches.png" alt="Watches" class="category-image" />
+          <h3>Smart watches</h3>
+        </div>
+        <div class="category-card">
+          <img
+            src="images/accessories.png"
+            alt="Accessories"
+            class="category-image"
+          />
+          <h3>Accessories</h3>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-text">© 2026 TechStore. All rights reserved.</div>
+      <ul class="footer-menu">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </footer>
     <script src="js/script.js"></script>
   </body>
 </html>
