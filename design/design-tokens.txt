@@ -1,0 +1,34 @@
+TECHSTORE DESIGN TOKENS
+
+1. ЦВЕТОВАЯ ПАЛИТРА (COLORS)
+----------------------------------
+Main Black:      #000000 (Фон Hero-блока, футер)
+Pure White:      #FFFFFF (Текст на темном фоне, основной фон)
+Dark Grey:       #1D1D1F (Второстепенные блоки)
+Light Grey BG:   #EDEDED (Фоны карточек категорий)
+Secondary Grey:  #909090 (Текст описаний, неактивные элементы)
+Accent Red:      #FF0000 (Индикатор скидок, уведомления)
+
+2. ТИПОГРАФИКА (TYPOGRAPHY)
+----------------------------------
+Font Family: 'SF Pro Display', 'Inter', sans-serif (основной шрифт проекта)
+
+Headings:
+- H1 (Hero title):   96px / Weight: 700 / Bold
+- H2 (Section title): 32px / Weight: 500 / Medium
+- H3 (Product name):  16px / Weight: 500 / Medium
+
+Body Text:
+- Main body:         14px / Weight: 400 / Regular
+- Small text/Footer: 12px / Weight: 400 / Regular
+
+3. КНОПКИ И ЭЛЕМЕНТЫ (UI ELEMENTS)
+----------------------------------
+Main Button:
+- Border-radius: 6px
+- Border-width: 1px (для кнопок типа Outline)
+- Padding: 12px 56px (стандарт для Shop Now)
+
+Spacing:
+- Container width: 1120px
+- Section padding: 80px (вертикальные отступы между блоками)

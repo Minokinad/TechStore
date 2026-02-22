@@ -3,77 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechStore</title>
+    <meta
+      name="description"
+      content="Cyber - The best store for modern electronics. iPhone, MacBook, PlayStation and more."
+    />
+    <title>Cyber - Modern Electronics Store</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="main-glow"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header>
-      <div class="logo">TechStore</div>
-      <nav>
-        <ul>
-          <li><a href="#">Catalog</a></li>
-          <li><a href="#">Sales</a></li>
-          <li><a href="#">Support</a></li>
-        </ul>
-      </nav>
-    </header>
+    <header class="header">
+      <div class="header__container container">
+        <a href="/" class="header__logo logo">cyber</a>
 
-    <section class="hero">
-      <h1>The Future of Tech is Here.</h1>
-      <p>
-        Discover the next generation of smartphones, laptops, and wearable
-        devices
-      </p>
-    </section>
-
-    <section class="categories-section">
-      <h2>Categories</h2>
-      <div class="categories-grid">
-        <div class="category-card">
-          <img
-            src="images/smartphone.png"
-            alt="Smartphones"
-            class="category-image"
+        <form action="#" class="header__search search-form">
+          <input
+            type="search"
+            class="search-form__input"
+            placeholder="Search"
           />
-          <h3>Smartphones</h3>
-        </div>
-        <div class="category-card">
-          <img src="images/laptop.png" alt="Laptops" class="category-image" />
-          <h3>Laptops & PCs</h3>
-        </div>
-        <div class="category-card">
-          <img src="images/audio.png" alt="Audio" class="category-image" />
-          <h3>Audio & Headphones</h3>
-        </div>
-        <div class="category-card">
-          <img src="images/gaming.png" alt="Gaming" class="category-image" />
-          <h3>Gaming gear</h3>
-        </div>
-        <div class="category-card">
-          <img src="images/watches.png" alt="Watches" class="category-image" />
-          <h3>Smart watches</h3>
-        </div>
-        <div class="category-card">
-          <img
-            src="images/accessories.png"
-            alt="Accessories"
-            class="category-image"
-          />
-          <h3>Accessories</h3>
+        </form>
+
+        <nav class="header__nav nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Contact Us</a>
+            </li>
+            <li class="nav__item"><a href="#" class="nav__link">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions actions">
+          <button class="actions__btn" aria-label="Favorites">
+            <img src="images/icons/heart.svg" alt="" />
+          </button>
+          <button class="actions__btn" aria-label="Cart">
+            <img src="images/icons/cart.svg" alt="" />
+          </button>
+          <button class="actions__btn" aria-label="User Profile">
+            <img src="images/icons/user.svg" alt="" />
+          </button>
         </div>
       </div>
-    </section>
+    </header>
 
-    <footer>
-      <div class="footer-text">© 2026 TechStore. All rights reserved.</div>
-      <ul class="footer-menu">
-        <li><a href="#">Our Story</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero__container container">
+          <div class="hero__content">
+            <p class="hero__subtitle">Pro.Beyond.</p>
+            <h1 class="hero__title">iPhone 14 <strong>Pro</strong></h1>
+            <p class="hero__text">
+              Created to change everything for the better. For everyone
+            </p>
+            <a href="#" class="hero__btn btn btn--outline">Shop Now</a>
+          </div>
+          <div class="hero__image">
+            <img
+              src="images/iphone-hero.png"
+              alt="Dual iPhone 14 Pro Space Black and Deep Purple"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="promo">
+        <h2 class="visually-hidden">Promotions</h2>
+        <div class="promo__grid">
+          <article class="promo__item">
+            <figure class="promo__figure">
+              <img src="images/ps5.png" alt="Playstation 5 Console" />
+              <figcaption class="promo__caption">
+                <h2 class="promo__title">Playstation 5</h2>
+                <p class="promo__text">Redefine your PlayStation experience.</p>
+              </figcaption>
+            </figure>
+          </article>
+          <article class="promo__item">
+            <figure class="promo__figure">
+              <img src="images/airpods-max.png" alt="AirPods Max" />
+              <figcaption class="promo__caption">
+                <h2 class="promo__title">Apple AirPods <strong>Max</strong></h2>
+                <p class="promo__text">
+                  Computational audio. Listen, it's powerful.
+                </p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="categories container">
+        <h2 class="categories__title">Browse By Category</h2>
+        <div class="categories__grid">
+          <a href="#" class="category-card">
+            <figure class="category-card__content">
+              <img
+                src="images/icons/phones.svg"
+                alt=""
+                class="category-card__icon"
+              />
+              <figcaption class="category-card__name">Phones</figcaption>
+            </figure>
+          </a>
+          <a href="#" class="category-card">
+            <figure class="category-card__content">
+              <img
+                src="images/icons/watches.svg"
+                alt=""
+                class="category-card__icon"
+              />
+              <figcaption class="category-card__name">Smart Watches</figcaption>
+            </figure>
+          </a>
+        </div>
+      </section>
+
+      <section class="products container">
+        <h2 class="visually-hidden">Product List</h2>
+        <div class="products__grid">
+          <article
+            class="product-card"
+            itemscope
+            itemtype="https://schema.org/Product"
+          >
+            <figure class="product-card__figure">
+              <div class="product-card__image-container">
+                <img
+                  itemprop="image"
+                  src="images/products/iphone14.png"
+                  alt="Apple iPhone 14 Pro Max 128GB Deep Purple"
+                />
+              </div>
+              <figcaption class="product-card__info">
+                <h3 itemprop="name" class="product-card__title">
+                  Apple iPhone 14 Pro Max
+                </h3>
+                <div
+                  class="product-card__price-wrapper"
+                  itemprop="offers"
+                  itemscope
+                  itemtype="https://schema.org/Offer"
+                >
+                  <span class="product-card__price"
+                    >$<span itemprop="price" content="900">900</span></span
+                  >
+                  <meta itemprop="priceCurrency" content="USD" />
+                  <link
+                    itemprop="availability"
+                    href="https://schema.org/InStock"
+                  />
+                </div>
+              </figcaption>
+            </figure>
+            <button class="product-card__btn btn">Buy Now</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="sale-banner">
+        <div class="sale-banner__container container">
+          <div class="sale-banner__content">
+            <h2 class="sale-banner__title">Big Summer <strong>Sale</strong></h2>
+            <p class="sale-banner__text">
+              Exclusive deals available from
+              <time datetime="2026-06-01">June 1st</time> to
+              <time datetime="2026-08-31">August 31st</time>.
+            </p>
+            <a href="#" class="sale-banner__btn btn btn--outline">Shop Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo logo">cyber</a>
+          <p class="footer__desc">
+            We are a residential interior design firm located in Portland.
+          </p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer Navigation">
+          <section class="footer__group">
+            <h3 class="footer__group-title">Services</h3>
+            <ul class="footer__list">
+              <li><a href="#" class="footer__link">Bonus program</a></li>
+              <li><a href="#" class="footer__link">Payment</a></li>
+            </ul>
+          </section>
+        </nav>
+        <div class="footer__bottom">
+          <p class="footer__copy">
+            &copy; <time datetime="2026">2026</time> TechStore. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
     </footer>
-    <script src="js/script.js"></script>
   </body>
 </html>
