@@ -13,9 +13,7 @@ export const createSlideHTML = (slide) => `
 export const createProductCard = (p) => `
     <article class="product-card" style="position: relative;">
         <div style="position: absolute; top: 10px; right: 10px; display: flex; gap: 5px;">
-             <!-- Кнопка Редактировать -->
              <button class="edit-item-btn" data-id="${p.id}" style="background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; padding: 4px 8px;">✎</button>
-             <!-- Кнопка Удалить из базы -->
              <button class="delete-item-btn" data-id="${p.id}" style="background: #fff; border: 1px solid #ff4d4d; color: #ff4d4d; border-radius: 4px; cursor: pointer; padding: 4px 8px;">&times;</button>
         </div>
         <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-size: 10px; pointer-events: none;">${p.category}</span>
