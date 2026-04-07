@@ -1,3 +1,5 @@
+import { formatCurrency, truncateText } from "../utils/dataParser.js";
+
 export const createSlideHTML = (slide) => `
     <div class="slide-content" style="display: flex; align-items: center; justify-content: space-between; animation: fadeIn 0.8s ease;">
         <div style="max-width: 500px; text-align: left;">
@@ -11,28 +13,23 @@ export const createSlideHTML = (slide) => `
 `;
 
 export const createProductCard = (p) => `
-    <article class="product-card" style="position: relative;">
-        <div style="position: absolute; top: 10px; right: 10px; display: flex; gap: 5px;">
-             <button class="edit-item-btn" data-id="${p.id}" style="background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; padding: 4px 8px;">✎</button>
-             <button class="delete-item-btn" data-id="${p.id}" style="background: #fff; border: 1px solid #ff4d4d; color: #ff4d4d; border-radius: 4px; cursor: pointer; padding: 4px 8px;">&times;</button>
-        </div>
-        <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-size: 10px; pointer-events: none;">${p.category}</span>
-        
+    <article class="product-card">
+        <span style="background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-size: 10px;">${p.category}</span>
         <div class="product-card__image-container">
-            <img src="${p.img || "images/products/iphone14.png"}" alt="${p.title}" style="width: 100%; object-fit: contain; height: 160px;">
+            <img src="${p.image}" alt="${p.title}" style="width: 100%; object-fit: contain; height: 160px;">
         </div>
-        <h3 class="product-card__title" style="font-size: 16px; margin: 10px 0;">${p.title}</h3>
-        <span class="product-card__price">$${p.price}</span>
+        <h3 class="product-card__title">${truncateText(p.title)}</h3>
+        <span class="product-card__price">${formatCurrency(p.price)}</span>
         <button class="btn add-to-cart" data-id="${p.id}" style="width: 100%; background: #000; color: #fff; margin-top: 15px;">Add to Cart</button>
     </article>
 `;
 
 export const createCartItemHTML = (item, index) => `
-    <div style="display: flex; gap: 15px; margin-bottom: 15px; align-items: center;">
-        <img src="${item.img}" style="width: 50px; height: 50px; object-fit: contain;">
+    <div style="display: flex; gap: 15px; margin-bottom: 15px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+        <img src="${item.image}" style="width: 40px; height: 40px; object-fit: contain;">
         <div style="flex-grow: 1;">
-            <h4 style="font-size: 14px; margin: 0;">${item.title}</h4>
-            <span style="font-weight: bold;">$${item.price}</span>
+            <h4 style="font-size: 12px; margin: 0;">${truncateText(item.title, 20)}</h4>
+            <span style="font-weight: bold;">${formatCurrency(item.price)}</span>
         </div>
         <button class="remove-from-cart" data-index="${index}" style="background: none; border: none; color: red; cursor: pointer;">&times;</button>
     </div>
