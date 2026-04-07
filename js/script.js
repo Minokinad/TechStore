@@ -111,14 +111,13 @@ class App {
       this.cart.reduce((sum, item) => sum + item.price, 0) * 100
     );
 
-    // Добавляем параметры для мгновенного подтверждения тестовой картой
     const body = new URLSearchParams({
       amount: totalAmount,
       currency: "usd",
       description: "TechStore Lab Order",
-      payment_method: "pm_card_visa", // Тестовая карта Visa от Stripe
-      confirm: "true", // Сразу подтвердить платеж
-      return_url: "https://example.com", // Обязательный параметр для подтверждения
+      payment_method: "pm_card_visa",
+      confirm: "true",
+      return_url: "https://example.com",
     });
 
     try {
@@ -140,9 +139,8 @@ class App {
         throw new Error(result.error.message);
       }
 
-      // Теперь статус будет 'succeeded'
       alert(
-        `✅ Оплата ПОЛНОСТЬЮ завершена!\nID: ${result.id}\nСтатус: ${result.status.toUpperCase()}`
+        `✅ Оплата завершена!\nID: ${result.id}\nСтатус: ${result.status.toUpperCase()}`
       );
       console.log("Stripe Full Success:", result);
 
