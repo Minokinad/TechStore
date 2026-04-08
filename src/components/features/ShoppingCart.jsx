@@ -1,4 +1,3 @@
-// src/components/features/ShoppingCart.jsx
 import Button from "../ui/Button";
 
 const ShoppingCart = ({ items, onRemove, onCheckout }) => {
