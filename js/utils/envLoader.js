@@ -1,6 +1,6 @@
 export async function loadEnv() {
   try {
-    const response = await fetch("./env"); // Теперь без точки
+    const response = await fetch("./env");
     if (!response.ok) throw new Error("env file not found");
     const text = await response.text();
     const env = {};

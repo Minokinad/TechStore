@@ -7,11 +7,13 @@ import {
   createSlideHTML,
 } from "./components/render.js";
 import { formatCurrency } from "./utils/dataParser.js";
+import SessionStorageService from "./storage/sessionStorage.js";
 
 class App {
   constructor() {
     this.api = new ApiService(API_CONFIG.fakeStore);
     this.storage = new LocalStorageService();
+    this.sessionCache = new SessionStorageService();
     this.products = [];
     this.filteredProducts = [];
     this.cart = this.storage.get("cyber_cart") || [];
@@ -75,10 +77,21 @@ class App {
 
   async loadProducts() {
     try {
-      this.products = await this.api.get(API_CONFIG.endpoints.products);
+      const cachedProducts = this.sessionCache.get("cached_electronics");
+
+      if (cachedProducts) {
+        console.log("Products loaded from SessionStorage cache");
+        this.products = cachedProducts;
+      } else {
+        console.log("Fetching products from FakeStore API...");
+        this.products = await this.api.get(API_CONFIG.endpoints.products);
+
+        this.sessionCache.set("cached_electronics", this.products);
+      }
+
       this.applyFilters();
     } catch (e) {
-      this.productsGrid.innerHTML = `<p>Error loading electronics</p>`;
+      this.productsGrid.innerHTML = `<p>Error loading electronics.</p>`;
     }
   }
 
