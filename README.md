@@ -53,3 +53,43 @@ src/
 ├── App.jsx            # Корневой компонент приложения
 └── main.jsx           # Точка входа в приложение
 ```
+
+---
+
+## ⚙️ Инструкция по запуску
+
+### Установка зависимостей
+
+```bash
+npm install
+```
+
+### Запуск в режиме разработки (Development)
+
+```bash
+npm run dev
+```
+
+### Сборка и предпросмотр (Production/Lighthouse)
+
+```bash
+npm run build
+npm run preview
+```
+
+### Запуск тестов и отчет о покрытии
+
+```bash
+npm run test:coverage
+```
+
+---
+
+## 📈 Метрики производительности (Lighthouse)
+
+- **Performance:** 90+ (после оптимизации WebP и минификации)
+- **Accessibility:** 95+
+- **Best Practices:** 100
+- **SEO:** 100
+
+---
