@@ -6,6 +6,10 @@ import PriceFilter from "./components/features/PriceFilter";
 import { products, cartItems } from "./data/mockData";
 
 function App() {
+  console.group("Данные магазина");
+  console.log("Список товаров:");
+  console.table(products);
+  console.groupEnd();
   return (
     <div className="app">
       <Header />

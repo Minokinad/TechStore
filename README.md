@@ -1,16 +1,55 @@
-# React + Vite
+# TechStore — Modern Electronics Store (React SPA)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект представляет собой современное одностраничное приложение (SPA) для интернет-магазина электроники, разработанное в рамках цикла лабораторных работ по курсу ИТиВП.
 
-Currently, two official plugins are available:
+## 🚀 О проекте
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**TechStore** (дизайн-код "Cyber") — это витрина высокотехнологичных гаджетов с функционалом фильтрации, просмотра каталога и управления корзиной. Проект демонстрирует навыки компонентного подхода, работы с пропсами и глубокого тестирования интерфейса.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Технологический стек
 
-## Expanding the ESLint configuration
+- **Core:** React 18 (Функциональные компоненты)
+- **Build Tool:** Vite (Modern Frontend Tooling)
+- **Styling:** CSS3 (Variables, Flexbox, Grid, BEM-methodology)
+- **Testing:** Jest + React Testing Library
+- **Documentation:** JSDoc
+- **Optimization:** Lighthouse Audit, WebP Image Format
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📋 Реализованный функционал
+
+### Лабораторная работа №7: Компонентный интерфейс
+
+- **Архитектура:** Реализована иерархия из более чем 10 компонентов.
+- **Композиция:** Сложные компоненты (`ProductGrid`, `Hero`) собраны из базовых UI-элементов.
+- **Данные:** Использование типизированных статических данных (Mock Data) для имитации API.
+- **Props:** Организован односторонний поток данных от родительского `App` к дочерним узлам.
+- **События:** Реализованы функции-коллбэки для взаимодействия пользователя с интерфейсом (добавление в корзину, фильтрация).
+
+### Лабораторная работа №8: Тестирование и отладка
+
+- **Unit-тесты:** Полное покрытие бизнес-логики (утилиты форматирования цен и расчета итогов).
+- **Component-тесты:** Проверка рендеринга и пользовательских сценариев для всех ключевых компонентов.
+- **Покрытие (Coverage):** Достигнут показатель покрытия >90%.
+- **Аудит:** Проведен анализ производительности через Lighthouse (оптимизированы метрики LCP и CLS).
+- **Отладка:** Использование продвинутых инструментов Chrome DevTools (Sources Breakpoints, Network Analysis).
+
+---
+
+## 📂 Структура проекта
+
+```text
+src/
+├── components/
+│   ├── features/      # Сложные компоненты (ProductCard, ShoppingCart)
+│   ├── layout/        # Элементы разметки (Header, Hero)
+│   └── ui/            # Базовые атомарные компоненты (Button, Rating)
+├── data/              # Статические данные и моки
+├── utils/             # Чистые функции и логика
+│   └── __tests__/     # Наборы Unit и интеграционных тестов
+├── App.jsx            # Корневой компонент приложения
+└── main.jsx           # Точка входа в приложение
+```
