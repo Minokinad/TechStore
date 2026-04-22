@@ -33,7 +33,7 @@ const Header = () => (
       </nav>
 
       <div className="header__actions">
-        <img src="/heart.svg" alt="Favorites" className="header__icon" />
+        <img src="heart.svg" alt="Favorites" className="header__icon" />
         <div
           style={{
             position: "relative",
@@ -41,7 +41,7 @@ const Header = () => (
             alignItems: "center",
           }}
         >
-          <img src="/cart.svg" alt="Cart" className="header__icon" />
+          <img src="cart.svg" alt="Cart" className="header__icon" />
           <span
             style={{
               background: "red",
@@ -58,7 +58,7 @@ const Header = () => (
             2
           </span>
         </div>
-        <img src="/user.svg" alt="Profile" className="header__icon" />
+        <img src="user.svg" alt="Profile" className="header__icon" />
       </div>
     </div>
   </header>
