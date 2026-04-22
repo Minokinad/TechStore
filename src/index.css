@@ -4,7 +4,7 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-light-grey: #ededed;
-  --color-secondary-grey: #909090;
+  --color-secondary-grey: #757575;
   --color-dark-grey: #1d1d1f;
   --color-dark-bg: #211c24;
   --font-main: "Inter", sans-serif;
@@ -108,7 +108,7 @@ a {
 }
 
 .hero__sub {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 10px;

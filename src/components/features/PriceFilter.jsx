@@ -18,6 +18,7 @@ const PriceFilter = ({ filters, onFilterChange }) => {
           onChange={(e) => onFilterChange("search", e.target.value)}
         />
         <select
+          aria-label="Select product category"
           className="search-form__input"
           value={filters.category}
           onChange={(e) => onFilterChange("category", e.target.value)}

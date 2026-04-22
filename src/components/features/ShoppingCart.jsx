@@ -26,7 +26,7 @@ const ShoppingCart = ({
             <div className="empty-cart-msg">
               <img
                 src="cart.svg"
-                alt=""
+                alt="cart"
                 style={{ width: "50px", opacity: 0.2, marginBottom: "15px" }}
               />
               <p>Your cart is empty</p>

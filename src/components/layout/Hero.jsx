@@ -16,8 +16,13 @@ const Hero = () => {
           </a>
         </div>
         <div className="hero__image">
-          {}
-          <img src="iphone-hero.png" alt="iPhone 14 Pro" />
+          <img
+            src="iphone-hero.png"
+            alt="iPhone 14 Pro"
+            fetchpriority="high"
+            width="500"
+            height="400"
+          />
         </div>
       </div>
     </section>

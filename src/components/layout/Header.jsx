@@ -33,7 +33,7 @@ const Header = ({ cartCount, onCartClick, onSearch }) => (
       </nav>
 
       <div className="header__actions">
-        <img src="heart.svg" className="header__icon" />
+        <img src="heart.svg" alt="favourites" className="header__icon" />
 
         <div
           onClick={onCartClick}
@@ -44,11 +44,11 @@ const Header = ({ cartCount, onCartClick, onSearch }) => (
             cursor: "pointer",
           }}
         >
-          <img src="cart.svg" className="header__icon" />
+          <img src="cart.svg" alt="cart" className="header__icon" />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </div>
 
-        <img src="user.svg" className="header__icon" />
+        <img src="user.svg" alt="user" className="header__icon" />
       </div>
     </div>
   </header>
