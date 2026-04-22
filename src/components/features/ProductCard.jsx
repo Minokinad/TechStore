@@ -12,7 +12,7 @@ const ProductCard = ({ product, onAddToCart }) => {
         <span style={{ color: "#FFB800" }}>⭐</span> {product.rating}
       </div>
       <span className="product-card__price">${product.price}</span>
-      <button className="btn-add" onClick={() => onAddToCart(product.id)}>
+      <button className="btn-add" onClick={() => onAddToCart(product)}>
         Add to Cart
       </button>
     </article>

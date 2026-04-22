@@ -1,34 +1,57 @@
+import { useState } from "react";
 import Header from "./components/layout/Header";
 import Hero from "./components/layout/Hero";
 import ProductGrid from "./components/features/ProductGrid";
 import ShoppingCart from "./components/features/ShoppingCart";
 import PriceFilter from "./components/features/PriceFilter";
-import { products, cartItems } from "./data/mockData";
+import { useCart } from "./hooks/useCart";
+import { useProducts } from "./hooks/useProducts";
 
 function App() {
-  console.group("Данные магазина");
-  console.log("Список товаров:");
-  console.table(products);
-  console.groupEnd();
+  const { cart, addToCart, removeFromCart, total, clearCart } = useCart();
+  const { filteredProducts, updateFilter, filters } = useProducts();
+
+  // Состояние для открытия/закрытия корзины
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleCheckout = () => {
+    alert(`Order confirmed for $${total.toFixed(2)}`);
+    clearCart();
+    setIsCartOpen(false);
+  };
+
   return (
     <div className="app">
-      <Header />
-      <Hero />
+      <Header
+        cartCount={cart.length}
+        onSearch={(val) => updateFilter("search", val)}
+        onCartClick={() => setIsCartOpen(true)}
+      />
 
-      <main className="container main-layout">
-        <section>
-          <PriceFilter onFilterChange={(t, v) => console.log(t, v)} />
-          <h2 style={{ marginBottom: "20px" }}>New Arrivals</h2>
-          <ProductGrid
-            products={products}
-            onAddToCart={(id) => console.log(id)}
-          />
+      {!filters.search && <Hero />}
+
+      <main className="container">
+        <section className="content" style={{ padding: "40px 0" }}>
+          <PriceFilter filters={filters} onFilterChange={updateFilter} />
+
+          <h2 style={{ margin: "40px 0 20px" }}>
+            {filters.search
+              ? `Results for "${filters.search}" (${filteredProducts.length})`
+              : "New Arrivals"}
+          </h2>
+
+          <ProductGrid products={filteredProducts} onAddToCart={addToCart} />
         </section>
-
-        <aside>
-          <ShoppingCart items={cartItems} onRemove={(i) => console.log(i)} />
-        </aside>
       </main>
+
+      <ShoppingCart
+        isOpen={isCartOpen}
+        items={cart}
+        total={total}
+        onClose={() => setIsCartOpen(false)}
+        onRemove={removeFromCart}
+        onCheckout={handleCheckout}
+      />
     </div>
   );
 }

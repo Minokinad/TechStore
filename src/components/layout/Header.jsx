@@ -1,4 +1,4 @@
-const Header = () => (
+const Header = ({ cartCount, onCartClick, onSearch }) => (
   <header className="header">
     <div className="container header__content">
       <a href="/" className="logo">
@@ -33,32 +33,22 @@ const Header = () => (
       </nav>
 
       <div className="header__actions">
-        <img src="heart.svg" alt="Favorites" className="header__icon" />
+        <img src="heart.svg" className="header__icon" />
+
         <div
+          onClick={onCartClick}
           style={{
             position: "relative",
             display: "flex",
             alignItems: "center",
+            cursor: "pointer",
           }}
         >
-          <img src="cart.svg" alt="Cart" className="header__icon" />
-          <span
-            style={{
-              background: "red",
-              color: "white",
-              borderRadius: "50%",
-              padding: "2px 6px",
-              fontSize: "10px",
-              position: "absolute",
-              top: "-8px",
-              right: "-10px",
-              fontWeight: "bold",
-            }}
-          >
-            2
-          </span>
+          <img src="cart.svg" className="header__icon" />
+          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </div>
-        <img src="user.svg" alt="Profile" className="header__icon" />
+
+        <img src="user.svg" className="header__icon" />
       </div>
     </div>
   </header>
