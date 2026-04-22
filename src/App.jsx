@@ -11,8 +11,12 @@ function App() {
   const { cart, addToCart, removeFromCart, total, clearCart } = useCart();
   const { filteredProducts, updateFilter, filters } = useProducts();
 
-  // Состояние для открытия/закрытия корзины
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  console.group("Данные магазина");
+  console.log("Список товаров:");
+  console.table(filteredProducts);
+  console.groupEnd();
 
   const handleCheckout = () => {
     alert(`Order confirmed for $${total.toFixed(2)}`);

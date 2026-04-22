@@ -8,6 +8,11 @@ import Button from "../../components/ui/Button";
  */
 
 describe("Button Component", () => {
+  test("должен отображать переданный текст", () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText("Click me")).toBeInTheDocument();
+  });
+
   test("должен рендериться с дефолтным вариантом primary", () => {
     render(<Button>Click me</Button>);
     const button = screen.getByRole("button");
