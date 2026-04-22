@@ -9,17 +9,34 @@ import PriceFilter from "../../components/features/PriceFilter";
  */
 
 describe("PriceFilter Component", () => {
-  test("должен вызывать onFilterChange для обоих полей (min и max)", () => {
+  const mockFilters = {
+    search: "",
+    category: "all",
+    minPrice: 0,
+    maxPrice: Infinity,
+  };
+
+  test("должен вызывать onFilterChange при вводе во все поля", () => {
     const mockOnFilterChange = jest.fn();
-    render(<PriceFilter onFilterChange={mockOnFilterChange} />);
+    render(
+      <PriceFilter filters={mockFilters} onFilterChange={mockOnFilterChange} />,
+    );
 
-    const minInput = screen.getByPlaceholderText(/Цена от/i);
-    const maxInput = screen.getByPlaceholderText(/Цена до/i);
+    const searchInput = screen.getByPlaceholderText(/Search products.../i);
+    fireEvent.change(searchInput, { target: { value: "macbook" } });
+    expect(mockOnFilterChange).toHaveBeenCalledWith("search", "macbook");
 
-    fireEvent.change(minInput, { target: { value: "10" } });
-    fireEvent.change(maxInput, { target: { value: "100" } });
+    const select = screen.getByRole("combobox");
+    fireEvent.change(select, { target: { value: "Computers" } });
+    expect(mockOnFilterChange).toHaveBeenCalledWith("category", "Computers");
 
-    expect(mockOnFilterChange).toHaveBeenCalledWith("min", "10");
-    expect(mockOnFilterChange).toHaveBeenCalledWith("max", "100");
+    const minInput = screen.getByPlaceholderText(/Price from/i);
+    const maxInput = screen.getByPlaceholderText(/Price to/i);
+
+    fireEvent.change(minInput, { target: { value: "500" } });
+    expect(mockOnFilterChange).toHaveBeenCalledWith("minPrice", "500");
+
+    fireEvent.change(maxInput, { target: { value: "1500" } });
+    expect(mockOnFilterChange).toHaveBeenCalledWith("maxPrice", "1500");
   });
 });

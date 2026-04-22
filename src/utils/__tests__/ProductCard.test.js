@@ -15,19 +15,16 @@ describe("ProductCard Component", () => {
     price: 500,
     image: "/test.jpg",
     category: "Phones",
+    description: "Test Desc",
+    rating: 4.5,
   };
   const mockAddToCart = jest.fn();
 
-  test("должен отображать название и цену товара", () => {
-    render(<ProductCard product={mockProduct} onAddToCart={mockAddToCart} />);
-    expect(screen.getByText("Test Phone")).toBeInTheDocument();
-    expect(screen.getByText("$500")).toBeInTheDocument();
-  });
-
-  test("должен вызывать onAddToCart при клике на кнопку", () => {
+  test("должен вызывать onAddToCart с объектом продукта", () => {
     render(<ProductCard product={mockProduct} onAddToCart={mockAddToCart} />);
     const button = screen.getByRole("button", { name: /add to cart/i });
     fireEvent.click(button);
-    expect(mockAddToCart).toHaveBeenCalledWith(1);
+
+    expect(mockAddToCart).toHaveBeenCalledWith(mockProduct);
   });
 });

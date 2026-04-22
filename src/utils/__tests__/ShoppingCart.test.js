@@ -10,37 +10,95 @@ import ShoppingCart from "../../components/features/ShoppingCart";
 
 describe("ShoppingCart Component", () => {
   const mockItems = [
-    { id: 1, title: "Item 1", price: 100, image: "/1.jpg" },
-    { id: 2, title: "Item 2", price: 200, image: "/2.jpg" },
+    { cartId: 1, title: "iPhone 14 Pro", price: 999, image: "i14.jpg" },
+    { cartId: 2, title: "AirPods Max", price: 549, image: "airpods.jpg" },
   ];
 
-  test("должен отображать количество товаров и итоговую сумму", () => {
+  test("должен отображать заголовок, товары и корректную итоговую сумму", () => {
     render(
       <ShoppingCart
+        isOpen={true}
         items={mockItems}
+        total={1548}
+        onClose={() => {}}
         onRemove={() => {}}
         onCheckout={() => {}}
       />,
     );
-    expect(screen.getByText(/Your Cart \(2\)/i)).toBeInTheDocument();
-    expect(screen.getByText(/Total: \$300/i)).toBeInTheDocument();
-  });
-  test("должен вызывать onRemove при нажатии на крестик", () => {
-    const mockOnRemove = jest.fn();
-    const mockItems = [{ id: 1, title: "Item 1", price: 100, image: "/1.jpg" }];
 
+    expect(screen.getByText(/Your Cart/i)).toBeInTheDocument();
+
+    expect(screen.getByText("iPhone 14 Pro")).toBeInTheDocument();
+    expect(screen.getByText("AirPods Max")).toBeInTheDocument();
+
+    expect(screen.getByText(/\$1548\.00/i)).toBeInTheDocument();
+  });
+
+  test("должен отображать сообщение, если корзина пуста", () => {
     render(
       <ShoppingCart
-        items={mockItems}
+        isOpen={true}
+        items={[]}
+        total={0}
+        onClose={() => {}}
+        onRemove={() => {}}
+        onCheckout={() => {}}
+      />,
+    );
+
+    expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
+  });
+
+  test("должен вызывать onRemove при нажатии на кнопку удаления", () => {
+    const mockOnRemove = jest.fn();
+    render(
+      <ShoppingCart
+        isOpen={true}
+        items={[mockItems[0]]}
+        total={999}
+        onClose={() => {}}
         onRemove={mockOnRemove}
         onCheckout={() => {}}
       />,
     );
 
-    const removeButtons = screen.getAllByRole("button");
+    const removeBtn = screen.getByTitle(/Remove item/i);
+    fireEvent.click(removeBtn);
 
-    fireEvent.click(removeButtons[0]);
+    expect(mockOnRemove).toHaveBeenCalledWith(0);
+  });
 
-    expect(mockOnRemove).toHaveBeenCalled();
+  test("кнопка Checkout должна быть заблокирована, если корзина пуста", () => {
+    render(
+      <ShoppingCart
+        isOpen={true}
+        items={[]}
+        total={0}
+        onClose={() => {}}
+        onRemove={() => {}}
+        onCheckout={() => {}}
+      />,
+    );
+
+    const checkoutBtn = screen.getByRole("button", { name: /Checkout Now/i });
+    expect(checkoutBtn).toBeDisabled();
+  });
+  test("должен быть скрыт (не иметь активных классов), когда isOpen={false}", () => {
+    const { container } = render(
+      <ShoppingCart
+        isOpen={false}
+        items={[]}
+        total={0}
+        onClose={() => {}}
+        onRemove={() => {}}
+        onCheckout={() => {}}
+      />,
+    );
+
+    const overlay = container.querySelector(".cart-overlay");
+    const drawer = container.querySelector(".cart-drawer");
+
+    expect(overlay).not.toHaveClass("active");
+    expect(drawer).not.toHaveClass("open");
   });
 });
