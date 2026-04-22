@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
         <div className="hero__image">
           {}
-          <img src="/iphone-hero.png" alt="iPhone 14 Pro" />
+          <img src="iphone-hero.png" alt="iPhone 14 Pro" />
         </div>
       </div>
     </section>
