@@ -5,7 +5,7 @@ export const products = [
     description: "Apple's flagship with Dynamic Island and A16 Bionic chip.",
     price: 999,
     rating: 4.8,
-    image: "/iPhone14Pro.webp",
+    image: "iPhone14Pro.webp",
     category: "Phones",
   },
   {
@@ -14,7 +14,7 @@ export const products = [
     description: "Powerhouse for professionals with M2 Pro chip.",
     price: 1999,
     rating: 4.9,
-    image: "/Macbook14Pro.webp",
+    image: "Macbook14Pro.webp",
     category: "Computers",
   },
   {
@@ -23,7 +23,7 @@ export const products = [
     description: "Advanced health features and cellular connectivity.",
     price: 399,
     rating: 4.5,
-    image: "/AppleWatchSeries8.webp",
+    image: "AppleWatchSeries8.webp",
     category: "Watches",
   },
   {
@@ -32,7 +32,7 @@ export const products = [
     description: "High-fidelity audio with active noise cancellation.",
     price: 549,
     rating: 4.7,
-    image: "/AppleAirpodsMax.webp",
+    image: "AppleAirpodsMax.webp",
     category: "Headphones",
   },
 ];
@@ -42,12 +42,12 @@ export const cartItems = [
     id: 1,
     title: "iPhone 14 Pro",
     price: 999,
-    image: "/iPhone14Pro.webp",
+    image: "iPhone14Pro.webp",
   },
   {
     id: 4,
     title: "AirPods Max",
     price: 549,
-    image: "/AppleAirpodsMax.webp",
+    image: "AppleAirpodsMax.webp",
   },
 ];
